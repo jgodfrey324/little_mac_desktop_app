@@ -1,17 +1,17 @@
 // HELPERS ------------------
 const calculatePlanetWeight = (weight, planet) => {
     switch (planet) {
-        case "mercury":
+        case "Mercury":
             return weight * 0.38
-        case "venus":
+        case "Venus":
             return weight * 0.91
-        case "mars":
+        case "Mars":
             return weight * 0.38
-        case "jupiter":
+        case "Jupiter":
             return weight * 2.34
-        case "saturn":
+        case "Saturn":
             return weight * 1.06
-        case "neptune":
+        case "Neptune":
             return weight * 1.19
         default:
             return weight
@@ -59,15 +59,18 @@ if (planetsContainer) {
             // const profileInfoContainer = document.getElementById("profile-info-container");
             // profileInfoContainer.style.display = "none" // Hide the previous container
             // Grab page 3 container
-            const planetSelectionContainer = document.getElementById("planet-selection-container");
-            planetSelectionContainer.style.display = "block"; // Show the new container
+            planetsContainer.style.display = "block"; // Show the new container
             // Pass along the new planetary weight value
-            const weight = planetSelectionContainer.getAttribute("weight");
+            const weight = planetsContainer.getAttribute("weight");
             const planet = e.target.getAttribute("value")
-            console.log('planet', planet)
             const planetaryWeight = calculatePlanetWeight(weight, planet)
-            console.log('planetary weight: ', planetaryWeight.toFixed(1))
-            planetSelectionContainer.setAttribute('weight', `${enterWeightInput.value}`)
+            // Display weight text
+            const displayWeightElem = planetsContainer.querySelector("#display-new-weight");
+            displayWeightElem.querySelector("#insert-weight").innerHTML = `${planetaryWeight.toFixed(1)}lbs`
+            displayWeightElem.querySelector("#insert-planet").innerHTML = `${planet}!`
+            displayWeightElem.style.display = "block";
+            //
+            planetsContainer.setAttribute('weight', `${planetaryWeight}`)
         }
     });
 }
