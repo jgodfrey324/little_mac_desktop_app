@@ -52,14 +52,10 @@ if (weightSubmitBtn) {
 
 // SELECT PLANET FROM PAGE 3
 const planetsContainer = document.getElementById("planet-selection-container");
+const planetSubmitBtn = document.getElementById("planet-submit");
 if (planetsContainer) {
     planetsContainer.addEventListener("click", (e) => {
         if (e.target && e.target.matches('.planets-container')) {
-            // Grab page 4 container
-            // const profileInfoContainer = document.getElementById("profile-info-container");
-            // profileInfoContainer.style.display = "none" // Hide the previous container
-            // Grab page 3 container
-            planetsContainer.style.display = "block"; // Show the new container
             // Pass along the new planetary weight value
             const weight = planetsContainer.getAttribute("weight");
             const planet = e.target.getAttribute("value")
@@ -72,5 +68,12 @@ if (planetsContainer) {
             //
             planetsContainer.setAttribute('weight', `${planetaryWeight}`)
         }
+    });
+    planetSubmitBtn.addEventListener("click", () => {
+            // Grab page 4 container
+            const opponentSelectionContainer = document.getElementById("opponent-selection-container");
+            opponentSelectionContainer.style.display = "block"
+            // Grab page 3 container
+            planetsContainer.style.display = "none";
     });
 }
