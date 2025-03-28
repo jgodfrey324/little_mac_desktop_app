@@ -1,5 +1,5 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('node:path');
+const { app, BrowserWindow, ipcMain, contextBridge } = require('electron');
+const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -13,6 +13,7 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
     },
   });
 
@@ -21,6 +22,14 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  // Handle the 'load-page' event
+  ipcMain.on('load-page', (event, page) => {
+    console.log('load page called in main process with:', page);
+    const filePath = path.join(__dirname, page); // Get the correct path to the requested page
+    console.log('Resolved file path:', filePath); // This will show the resolved file path
+    mainWindow.loadFile(filePath); // Load the requested HTML file
+  });
 };
 
 // This method will be called when Electron has finished
