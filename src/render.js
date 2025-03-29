@@ -18,6 +18,21 @@ const calculatePlanetWeight = (weight, planet) => {
     }
 }
 
+const fetchToolSentence = (tool) => {
+    switch (tool) {
+        case "Wisdom":
+            return "You've recieved a stack of books."
+        case "Strength":
+            return "You've recieved a thousand bullets."
+        case "Unity":
+            return "You've recieved an umbrella."
+        case "Leadership":
+            return "You've recieved a pointer finger. It's extendable."
+        default:
+            return "You actually don't get anything :/"
+    }
+}
+
 
 
 
@@ -83,23 +98,88 @@ if (planetsContainer) {
 const opponentSelectionContainer = document.getElementById("opponent-selection-container");
 const opponentSubmitBtn = document.getElementById("opponent-submit");
 if (opponentSelectionContainer) {
+    const partnerSelectionContainer = document.getElementById("partner-selection-container");
     opponentSelectionContainer.addEventListener("click", (e) => {
         if (e.target && e.target.matches('.opponents-container')) {
             // Pass along the new planetary weight value, planet value and opponent value
             const weight = opponentSelectionContainer.getAttribute("weight");
             const planet = opponentSelectionContainer.getAttribute("planet");
             const opponent = e.target.getAttribute("value");
+            partnerSelectionContainer.setAttribute('weight', weight)
+            partnerSelectionContainer.setAttribute('planet', planet)
+            partnerSelectionContainer.setAttribute('opponent', opponent)
             // Display weight text
             const displayOppElem = opponentSelectionContainer.querySelector("#display-opponent");
             displayOppElem.querySelector("#insert-opponent").innerHTML = `${opponent}!`
             displayOppElem.style.display = "block";
+            opponentSubmitBtn.style.display = "block";
         }
     });
     opponentSubmitBtn.addEventListener("click", () => {
+            // Grab page 5 container
+            partnerSelectionContainer.style.display = "block"
             // Grab page 4 container
-            const opponentSelectionContainer = document.getElementById("opponent-selection-container");
-            opponentSelectionContainer.style.display = "block"
-            // Grab page 3 container
-            planetsContainer.style.display = "none";
+            opponentSelectionContainer.style.display = "none";
+    });
+}
+
+// SELECT PARTNER FROM PAGE 5
+const partnerSelectionContainer = document.getElementById("partner-selection-container");
+const partnerSubmitBtn = document.getElementById("partner-submit");
+if (partnerSelectionContainer) {
+    const toolSelectionContainer = document.getElementById("tool-selection-container");
+    partnerSelectionContainer.addEventListener("click", (e) => {
+        if (e.target && e.target.matches('.partners-container')) {
+            // Pass along the new planetary weight value, planet, opponent and partner value
+            const weight = partnerSelectionContainer.getAttribute("weight");
+            const planet = partnerSelectionContainer.getAttribute("planet");
+            const opponent = partnerSelectionContainer.getAttribute("opponent");
+            const partner = e.target.getAttribute("value");
+            toolSelectionContainer.setAttribute('weight', weight)
+            toolSelectionContainer.setAttribute('planet', planet)
+            toolSelectionContainer.setAttribute('opponent', opponent)
+            // Display weight text
+            const displayPartnerElem = partnerSelectionContainer.querySelector("#display-partner");
+            displayPartnerElem.querySelector("#insert-partner").innerHTML = `${partner}`
+            displayPartnerElem.style.display = "block";
+            partnerSubmitBtn.style.display = "block";
+        }
+    });
+    partnerSubmitBtn.addEventListener("click", () => {
+            // Grab page 5 container
+            partnerSelectionContainer.style.display = "none"
+            // Grab page 6 container
+            toolSelectionContainer.style.display = "block";
+    });
+}
+
+// SELECT TOOL FROM PAGE 6
+const toolSelectionContainer = document.getElementById("tool-selection-container");
+const toolSubmitBtn = document.getElementById("tool-submit");
+if (toolSelectionContainer) {
+    // const partnerSelectionContainer = document.getElementById("partner-selection-container");
+    toolSelectionContainer.addEventListener("click", (e) => {
+        if (e.target && e.target.matches('.tool-buttons')) {
+            // Pass along the new planetary weight, planet, opponent, partner and tool
+            const weight = toolSelectionContainer.getAttribute("weight");
+            const planet = toolSelectionContainer.getAttribute("planet");
+            const opponent = toolSelectionContainer.getAttribute("opponent");
+            const partner = toolSelectionContainer.getAttribute("partner");
+            const tool = e.target.getAttribute("value");
+            // partnerSelectionContainer.setAttribute('weight', weight)
+            // partnerSelectionContainer.setAttribute('planet', planet)
+            // partnerSelectionContainer.setAttribute('opponent', opponent)
+            // Display weight text
+            const displayToolElem = toolSelectionContainer.querySelector("#display-tool");
+            displayToolElem.querySelector("#insert-tool").innerHTML = `${fetchToolSentence(tool)}`
+            displayToolElem.style.display = "block";
+            toolSubmitBtn.style.display = "block";
+        }
+    });
+    toolSubmitBtn.addEventListener("click", () => {
+            // Grab page 6 container
+            toolSelectionContainer.style.display = "none"
+            // Grab page 7 container
+            // opponentSelectionContainer.style.display = "block";
     });
 }

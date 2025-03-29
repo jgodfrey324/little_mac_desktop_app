@@ -66,9 +66,9 @@
         <div id="jungkook-image", class="opponents-image">asdf</div>
         <p>Jungkook</p>
       </div>
-      <div id="chaeunwoo-container", class="opponents-container", value="Cha-Eun-Woo">
-          <div id="chaeunwoo-image", class="opponents-image">asdf</div>
-          <p>Cha Eun Woo</p>
+      <div id="chaeunwoo-container", class="opponents-container", value="ChaEunWoo">
+        <div id="chaeunwoo-image", class="opponents-image">asdf</div>
+        <p>ChaEunWoo</p>
       </div>
       <div id="heeseung-container", class="opponents-container", value="Heeseung">
           <div id="heeseung-image", class="opponents-image">asdf</div>
@@ -78,7 +78,51 @@
         <span>You have challenged </span>
         <span id="insert-opponent"></span>
       </p>
-      <button id="opponent-submit">Next</button>
+      <button id="opponent-submit", style="display:none">Next</button>
+    </div>
+
+    <!--- Fifth Page --->
+    <div id="partner-selection-container", style="display:none">
+      <p>This is a strong opponent. Select a partner to assist:</p>
+      <div id="slenderman-container", class="partners-container", value="Slenderman">
+          <div id="slenderman-image", class="partners-image">asdf</div>
+          <p>Slenderman</p>
+      </div>
+      <div id="babayaga-container", class="partners-container", value="Babayaga">
+          <div id="babayaga-image", class="partners-image">asdf</div>
+          <p>Babayaga</p>
+      </div>
+      <div id="muffinman-container", class="partners-container", value="Muffin-Man">
+          <div id="muffinman-image", class="partners-image">asdf</div>
+          <p>Muffin-Man</p>
+      </div>
+      <p id="display-partner", style="display:none">
+          <span id="insert-partner"></span>
+          <span> will come with you :3 </span>
+          <span>They are a courageous partner and loyal friend.</span>
+      </p>
+      <button id="partner-submit", style="display:none">Next</button>
+    </div>
+
+    <!--- Sixth Page --->
+    <div id="tool-selection-container", style="display:none">
+      <p>Now select what to arm yourselves with:</p>
+    <div id="wisdom-container", class="tools-container", value="Wisdom">
+        <button class="tool-buttons" value="Wisdom">Wisdom</button>
+    </div>
+    <div id="strength-container", class="strength-container", value="Strength">
+        <button class="tool-buttons" value="Strength">Strength</button>
+    </div>
+    <div id="unity-container", class="tools-container", value="Unity">
+        <button class="tool-buttons" value="Unity">Unity</button>
+    </div>
+    <div id="leadership-container", class="tools-container", value="Leadership">
+        <button class="tool-buttons" value="Leadership">Leadership</button>
+    </div>
+    <p id="display-tool", style="display:none">
+        <span id="insert-tool"></span>
+    </p>
+    <button id="tool-submit", style="display:none">Next</button>
     </div>
   </body>
 </html>
