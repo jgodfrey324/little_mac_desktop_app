@@ -35,6 +35,21 @@ input {
   padding: 0 10px;
 }
 /* // */
+.animate-bounce {
+  animation: bounce 4s ease-in-out infinite; /* Slow bounce, 4 seconds duration */
+}
+@keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px); /* Move up */
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+/* // */
 #planet-selection-container, #opponent-selection-container, #partner-selection-container, #welcome-container, #profile-info-container {
   display: flex;
   align-items: center;
@@ -53,10 +68,18 @@ input {
   align-items: center;
   justify-content: center;
   margin: 15px;
-  width: 45%;
+  width: 40%;
+}
+.planets-container, .opponents-container, .partners-container {
+  margin: 0;
+}
+.planets-container:hover > p, .opponents-container:hover > p, .partners-container:hover > p {
+  animation: bounce 4s ease-in-out infinite; /* Slow bounce, 4 seconds duration */
+  font-weight: bold;
 }
 .planets-container > p, .opponents-container > p, .partners-container > p {
   margin: 0;
+  margin-top: 10px;
   font-size: 20px;
 }
 .flex-planets {
@@ -64,6 +87,8 @@ input {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 50px 20px;
+  padding: 0 30px;
 }
 .planets-image > img, .opponents-image > img, .partners-image > img {
   height: 125px;
@@ -73,7 +98,6 @@ input {
 .planets-image > img:hover, .opponents-image > img:hover, .partners-image > img:hover {
   cursor: pointer;
   transform: scale(1.2);
-  /* box-shadow: 3px 2px 0 black; */
 }
 #display-new-weight, #display-opponent, #display-partner, #display-tool {
   text-align: center;
@@ -94,10 +118,11 @@ input {
   justify-content: space-between;
 }
 .opponents-container > p, .partners-container > p {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .opponents-container, .partners-container {
-  width: 30%;
+  width: 28%;
+  gap: 20px;
 }
 .opponent-question, .partner-question, .tool-question, .weight-question {
   margin-bottom: 50px;
