@@ -71,10 +71,11 @@ const planetSubmitBtn = document.getElementById("planet-submit");
 if (planetsContainer) {
     const opponentSelectionContainer = document.getElementById("opponent-selection-container");
     planetsContainer.addEventListener("click", (e) => {
-        if (e.target && e.target.matches('.planets-container')) {
+        if (e.target && e.target.matches('.planets-image img')) {
+            const singlePlanetContainer = e.target.closest('.planets-container')
             // Pass along the new planetary weight value and planet value
             const weight = planetsContainer.getAttribute("weight");
-            const planet = e.target.getAttribute("value")
+            const planet = singlePlanetContainer.getAttribute("value")
             const planetaryWeight = calculatePlanetWeight(weight, planet)
             opponentSelectionContainer.setAttribute('weight', planetaryWeight)
             opponentSelectionContainer.setAttribute('planet', planet)
@@ -100,11 +101,12 @@ const opponentSubmitBtn = document.getElementById("opponent-submit");
 if (opponentSelectionContainer) {
     const partnerSelectionContainer = document.getElementById("partner-selection-container");
     opponentSelectionContainer.addEventListener("click", (e) => {
-        if (e.target && e.target.matches('.opponents-container')) {
+        if (e.target && e.target.matches('.opponents-image img')) {
+            const singleOppContainer = e.target.closest('.opponents-container')
             // Pass along the new planetary weight value, planet value and opponent value
             const weight = opponentSelectionContainer.getAttribute("weight");
             const planet = opponentSelectionContainer.getAttribute("planet");
-            const opponent = e.target.getAttribute("value");
+            const opponent = singleOppContainer.getAttribute("value");
             partnerSelectionContainer.setAttribute('weight', weight)
             partnerSelectionContainer.setAttribute('planet', planet)
             partnerSelectionContainer.setAttribute('opponent', opponent)
@@ -129,12 +131,13 @@ const partnerSubmitBtn = document.getElementById("partner-submit");
 if (partnerSelectionContainer) {
     const toolSelectionContainer = document.getElementById("tool-selection-container");
     partnerSelectionContainer.addEventListener("click", (e) => {
-        if (e.target && e.target.matches('.partners-container')) {
+        if (e.target && e.target.matches('.partners-image img')) {
+            const singlePartnerContainer = e.target.closest('.partners-container')
             // Pass along the new planetary weight value, planet, opponent and partner value
             const weight = partnerSelectionContainer.getAttribute("weight");
             const planet = partnerSelectionContainer.getAttribute("planet");
             const opponent = partnerSelectionContainer.getAttribute("opponent");
-            const partner = e.target.getAttribute("value");
+            const partner = singlePartnerContainer.getAttribute("value");
             toolSelectionContainer.setAttribute('weight', weight)
             toolSelectionContainer.setAttribute('planet', planet)
             toolSelectionContainer.setAttribute('opponent', opponent)

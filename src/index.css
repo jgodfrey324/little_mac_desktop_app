@@ -1,7 +1,121 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: 0.75px;
   margin: auto;
   max-width: 38rem;
   padding: 2rem;
+  height: 565px;
+  background-color: rgb(255, 216, 216);
+}
+button {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: 0.75px;
+
+  font-size: 20px;
+  background-color: pink;
+  border: 2px solid darkred;
+  color: darkred;
+  transition: 0.2s ease-in-out;
+  padding: 5px 20px;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: 3px 2px 0 darkmagenta;
+}
+input {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: 0.75px;
+
+  font-size: 18px;
+  min-width: 300px;
+  min-height: 35px;
+  padding: 0 10px;
+}
+/* // */
+#planet-selection-container, #opponent-selection-container, #partner-selection-container, #welcome-container, #profile-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.planet-question, .opponent-question, .partner-question, .tool-question, .weight-question {
+  text-align: center;
+  font-size: 24px;
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.planets-container, .opponents-container, .partners-container, .tools-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  width: 45%;
+}
+.planets-container > p, .opponents-container > p, .partners-container > p {
+  margin: 0;
+  font-size: 20px;
+}
+.flex-planets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.planets-image > img, .opponents-image > img, .partners-image > img {
+  height: 125px;
+  width: 125px;
+  transition: 0.2s ease-in-out;
+}
+.planets-image > img:hover, .opponents-image > img:hover, .partners-image > img:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  /* box-shadow: 3px 2px 0 black; */
+}
+#display-new-weight, #display-opponent, #display-partner, #display-tool {
+  text-align: center;
+  font-size: 20px;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+#planet-submit, #opponent-submit, #partner-submit, #tool-submit, #begin-journey-btn {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+/* // */
+.flex-opponents, .flex-partners, .flex-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.opponents-container > p, .partners-container > p {
+  margin-top: 20px;
+}
+.opponents-container, .partners-container {
+  width: 30%;
+}
+.opponent-question, .partner-question, .tool-question, .weight-question {
+  margin-bottom: 50px;
+}
+.opponents-image > img, .partners-image > img {
+  height: 150px;
+  width: 150px;
+}
+/* // */
+#welcome-container, #profile-info-container {
+  flex-direction: column;
+  margin: auto;
+  margin-top: 30%;
+}
+/* // */
+.weight-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
