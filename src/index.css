@@ -75,7 +75,8 @@ input {
 }
 .planets-container:hover > p, .opponents-container:hover > p, .partners-container:hover > p {
   animation: bounce 4s ease-in-out infinite; /* Slow bounce, 4 seconds duration */
-  font-weight: bold;
+  /* font-weight: bold; */
+  color: darkmagenta;
 }
 .planets-container > p, .opponents-container > p, .partners-container > p {
   margin: 0;
