@@ -16,6 +16,7 @@
   "author": "jgodfrey",
   "license": "MIT",
   "dependencies": {
+    "electron-packager": "^17.1.2",
     "electron-squirrel-startup": "^1.0.1"
   },
   "devDependencies": {
